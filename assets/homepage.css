@@ -111,6 +111,10 @@ body {
 	line-height: 1;
 }
 
+a {
+	text-decoration: none;
+}
+
 ol,
 ul {
 	list-style: none;
@@ -189,6 +193,11 @@ nav li {
 
 li:hover {
 	color: #B1663C;
+}
+
+nav img {
+    margin-top: 5px;
+    height: 20px;
 }
 
 #introduction {
