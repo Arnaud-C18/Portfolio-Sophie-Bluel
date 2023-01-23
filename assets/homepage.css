@@ -113,6 +113,7 @@ body {
 
 a {
 	text-decoration: none;
+	color: black;
 }
 
 ol,
@@ -191,7 +192,7 @@ nav li {
 	font-size: 1.2em;
 }
 
-li:hover {
+li a:hover {
 	color: #B1663C;
 }
 
@@ -232,7 +233,7 @@ nav img {
 	margin-bottom: 1em;
 }
 
-.gallery {
+#gallery {
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
@@ -240,7 +241,7 @@ nav img {
 	grid-row-gap: 20px;
 }
 
-.gallery img {
+#gallery img {
 	width: 100%;
 }
 
@@ -293,8 +294,8 @@ button {
 }
 
 #contact input {
-	height: 50px;
-	font-size: 1.2em;
+	font-size: 30px;
+    padding: 10px;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
@@ -303,14 +304,15 @@ button {
 	margin: 2em 0 1em 0;
 }
 
-#contact textarea {
+#message {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"] {
+#sendButton {
 	font-family: 'Syne';
 	font-weight: 700;
+	font-size: 14px;
 	color: white;
 	background-color: #1D6154;
 	margin: 2em auto;

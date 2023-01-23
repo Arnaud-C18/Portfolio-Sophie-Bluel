@@ -13,11 +13,11 @@
 </head>
 <body>
 <header>
-	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
-			<li>projets</li>
-			<li>contact</li>
+			<li><a href="homepage.html#portfolio">projets</a></li>
+			<li><a href="homepage.html#contact">contact</a></li>
 			<li id="login">login</li>
 			<li><img src="assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
@@ -26,13 +26,13 @@
 <main>
 	<section id="loginSection">
 		<h2>Log In</h2>
-		<form id="input" action="#" method="post">
+		<form method="post" id="connectionForm">
 			<label for="email">E-mail</label>
-			<input type="email" name="email" id="email">
+			<input type="email" name="email" id="connectionEmail">
 			<label for="password">Mot de passe</label>
 			<input type="password" name="password" id="password">
+       		<button type="submit" id="connectButton">Se connecter</button>
 		</form>
-        <button id="connectButton">Se connecter</button>
         <p><a id="forgotPassword" href="#">Mot de passe oublié</a></p>
 	</section>
 </main>

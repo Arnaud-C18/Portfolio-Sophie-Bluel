@@ -111,8 +111,9 @@ body {
 	line-height: 1;
 }
 
-li a {
+a {
 	text-decoration: none;
+	color: black;
 }
 
 ol,
@@ -227,7 +228,7 @@ label {
     margin-bottom: 5px;
 }
 
-#input {
+form {
     display: flex;
     flex-direction: column;
 }
@@ -254,6 +255,7 @@ input {
 
 #forgotPassword {
     color: black;
+	text-decoration: underline;
 }
 
 footer {
