@@ -253,7 +253,7 @@ nav img {
 	margin-bottom: 50px;
 }
 
-button {
+#filters button {
 	color: #1D6154;
 	background-color: white;
 	border: solid 1px #1D6154;
@@ -268,10 +268,11 @@ button {
 	box-shadow: none;
 }
 
-#allFilter {
-	background-color: #1D6154;
+#filters button:hover {
 	color: white;
+	background-color: #1D6154 ;
 }
+
 
 #contact {
 	width: 50%;
@@ -312,13 +313,19 @@ button {
 #sendButton {
 	font-family: 'Syne';
 	font-weight: 700;
-	font-size: 14px;
+	font-size: 15px;
 	color: white;
 	background-color: #1D6154;
+	border: none;
 	margin: 2em auto;
-	width: 180px;
+	width: 250px;
+	height: 35px;
 	text-align: center;
 	border-radius: 60px;
+}
+
+#sendButton:hover {
+	background-color: #0E2F28;
 }
 
 footer nav ul {
@@ -329,11 +336,17 @@ footer nav ul {
 
 /*Page de connexion*/
 
+#login {
+	font-weight: 600;
+}
+
 #loginSection {
     width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
+	margin: auto;
+	margin-top: 150px;
 }
 
 #loginSection h2 {
@@ -370,6 +383,10 @@ input {
     width: 179px;
     height: 36px;
     margin-bottom: 25px;
+}
+
+#connectButton:hover {
+	background-color: #0E2F28;
 }
 
 #forgotPassword {
