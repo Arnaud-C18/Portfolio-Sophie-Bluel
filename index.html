@@ -24,7 +24,8 @@
 			<ul>
 				<li><a href="#portfolio">projets</a></li>
 				<li><a href="#contact">contact</a></li>
-				<li><a href="login.html">login</a></li>
+				<li id="loginButton"><a href="login.html">login</a></li>
+				<li class="edition" id="logoutButton"><a href="#">logout</a></li>
 				<li><a href="#"><img src="assets/icons/instagram.png" alt="Instagram"></a></li>
 			</ul>
 		</nav>
@@ -34,12 +35,12 @@
 	<section id="introduction">
 		<figure>
 			<img src="assets/images/sophie-bluel.png" alt="">
-			<label id="pictureEdition" class="edition"><a href="pictureModal" ><i class="fa-regular fa-pen-to-square"></i>modifier</a></label>
+			<label><a href="pictureModal" id="pictureEdition" class="edition"><i class="fa-regular fa-pen-to-square"></i>modifier</a></label>
 			<aside id="pictureModal" class="modal">
 			</aside>
 		</figure>
 		<article>
-			<a href="introModal" id="introEdition" style.display="none"><i class="fa-regular fa-pen-to-square"></i>modifier</a>
+			<a href="introModal" id="introEdition" class="edition"><i class="fa-regular fa-pen-to-square"></i>modifier</a>
 			<h2>Designer d'espace</h2>
 			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
 			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
@@ -90,6 +91,7 @@
 </footer>
 <script type="module" src="scripts/script.js"></script>
 <script type="module" src="scripts/admin.js"></script>
+<script type="module" src="scripts/modal.js"></script>
 
 </body>
 

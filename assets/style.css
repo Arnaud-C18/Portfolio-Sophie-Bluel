@@ -152,23 +152,6 @@ header {
 	justify-content: space-between;
 }
 
-#editionBar {
-	display: flex;
-	height: 59px;
-	justify-content: center;
-	align-items: center;
-	background-color: black;
-	color: white;
-}
-
-#editionBar i {
-	color: white;
-}
-
-#editionBar p{
-	margin: 10px;
-}
-
 #applyChanges {
 	height: 38px;
 	width: 216px;
@@ -460,6 +443,29 @@ input {
 
 footer {
     margin-top: 300px;
+}
+
+/*Mod Admin*/
+
+#editionBar {
+	display: none;
+	height: 59px;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	color: white;
+}
+
+#editionBar i {
+	color: white;
+}
+
+#editionBar p{
+	margin: 10px;
+}
+
+.edition {
+	display: none;
 }
 
 /*Modal*/
