@@ -213,8 +213,8 @@ li a:hover {
 }
 
 nav img {
-    margin-top: 5px;
-    height: 20px;
+	margin-top: 5px;
+	height: 20px;
 }
 
 #introduction {
@@ -312,7 +312,7 @@ main {
 
 #filters button:hover {
 	color: white;
-	background-color: #1D6154 ;
+	background-color: #1D6154;
 }
 
 
@@ -338,7 +338,7 @@ main {
 
 #contact input {
 	font-size: 30px;
-    padding: 10px;
+	padding: 10px;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
@@ -388,48 +388,48 @@ footer nav ul {
 }
 
 #loginSection {
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	width: 400px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	margin: auto;
 	margin-top: 150px;
 }
 
 #loginSection h2 {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 35px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 35px;
 }
 
 label {
-    margin-bottom: 5px;
+	margin-bottom: 5px;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 input {
-    font-size: 30px;
-    padding: 10px;
-    margin-bottom: 30px;
-    border-color: white;
-    border: solid 1px white;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	font-size: 30px;
+	padding: 10px;
+	margin-bottom: 30px;
+	border-color: white;
+	border: solid 1px white;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
 #connectButton {
-    color: white;
-    background: #1D6154;
-    border: none;
-    font-family: "Syne";
-    border-radius: 60px;
+	color: white;
+	background: #1D6154;
+	border: none;
+	font-family: "Syne";
+	border-radius: 60px;
 	margin: auto;
-    width: 179px;
-    height: 36px;
-    margin-bottom: 25px;
+	width: 179px;
+	height: 36px;
+	margin-bottom: 25px;
 }
 
 #connectButton:hover {
@@ -437,18 +437,17 @@ input {
 }
 
 #forgotPassword {
-    color: black;
+	color: black;
 	text-decoration: underline;
 }
 
 footer {
-    margin-top: 300px;
+	margin-top: 300px;
 }
 
 /*Mod Admin*/
 
 #editionBar {
-	display: none;
 	height: 59px;
 	justify-content: center;
 	align-items: center;
@@ -460,18 +459,35 @@ footer {
 	color: white;
 }
 
-#editionBar p{
+#editionBar p {
 	margin: 10px;
 }
 
-.edition {
-	display: none;
+#applyChanges {
+	cursor: pointer;
+	border: none;
 }
 
-/*Modal*/
+#gallery img {
+	margin-bottom: 5px;
+}
 
-.modal {
-	display: none;
+#projectEdition {
+	background-color: white;
+	border: none;
+	height: 20px;
+	margin-top: 10px;
+	margin-left: 5px;
+	cursor: pointer;
+
+}
+
+/*Modal de galerie*/
+
+#projectModal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -480,9 +496,209 @@ footer {
 	background: rgba(0, 0, 0, 0.4);
 }
 
-#projectModalWrapper {
+#modalWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	background-color: white;
+	overflow: auto;
 	width: 630px;
-	height: 730px;
+	height: 80%;
 	padding: 20px;
+	border-radius: 10px;
+}
+
+#modalButton {
+	display: flex;
+	justify-content: flex-end;
+	width: 95%;
+}
+
+#modalClose {
+	background-color: white;
+	border: none;
+	color: black;
+	width: 24px;
+	height: 24px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+#modalTitle {
+	font-weight: 400;
+	font-size: 26px;
+	color: black;
+}
+
+#editionGallery {
+	display: flex;
+	align-content: flex-start;
+	flex-wrap: wrap;
+	width: 70%;
+	height: 70%;
+	overflow: auto;
+	margin-top: 40px;
+	justify-content: space-between;
+	border-bottom: 1px solid #B3B3B3;
+}
+
+#editionGallery figure {
+	max-width: 18%;
+	height: 100px;
+	margin-bottom: 35px;
+}
+
+#editionGallery figure img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	object-position: center;
+}
+
+#editionGallery figcaption {
+	margin-bottom: 10px;
+}
+
+#addProject {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 237px;
+	height: 36px;
+	background: #1D6154;
+	border-radius: 60px;
+	color: white;
+	border: none;
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 14px;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+#deleteGallery {
+	width: 150px;
+	height: 25px;
+	margin-top: 25px;
+	font-family: 'Syne';
+	font-weight: 400;
+	font-size: 14px;
+	color: #D65353;
+	border: none;
+	background-color: white;
+	cursor: pointer;
+}
+
+/*Modal d'ajout de projet*/
+
+#addProjectModal {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+}
+
+#addProjectModalWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: white;
+	overflow: auto;
+	width: 630px;
+	height: 80%;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+#returnGallery {
+	background-color: white;
+	border: none;
+	color: black;
+	width: 24px;
+	height: 24px;
+	font-size: 20px;
+	cursor: pointer;
+	margin-right: 92%;
+}
+
+#modalContainer form {
+	height: 90%;
+	width: 70%;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#addImageSection {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 35%;
+	width: 100%;
+	background-color: #E8F1F6;
+	border-radius: 3px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+#addImageSection i {
+	font-size: 70px;
+	color: #B9C5CC;
+}
+
+#label-file {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 173px;
+	height: 36px;
+	color: #306685;
+	background-color: #CBD6DC;
+	border-radius: 50px;
+	font-family: Work Sans;
+	font-size: 14px;
+	font-weight: 1000;
+	border: none;
+	cursor: pointer;
+}
+
+#file {
+	display: none;
+}
+
+#addImageSection p {
+	font-family: Work Sans;
+	font-size: 12px;
+}
+
+#addImageRessourceLabel {
+	display: flex;
+	font-family: Work Sans;
+	font-size: 14px;
+	font-weight: 500;
+	width: 100%;
+	align-items: start;
+}
+
+.addImageRessource {
+	width: 95%;
+	height: 20px;
+}
+
+#addImageValidation {
+	height: 50px;
+	width: 60%;
+	border: none;
+	color: white;
+	font-family: Syne;
+	font-size: 14px;
+	font-weight: 700;
+	background: #A7A7A7;
+	border-radius: 60px;
+	cursor: pointer;
 }

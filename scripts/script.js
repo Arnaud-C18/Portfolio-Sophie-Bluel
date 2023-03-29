@@ -2,6 +2,8 @@
 const askWorks = await fetch("http://localhost:5678/api/works");
 const works = await askWorks.json();
 
+export { works };
+
 //Boucles pour générer les projets//
 async function generateWorks(works) {
     for (let i = 0; i < works.length; i++) {

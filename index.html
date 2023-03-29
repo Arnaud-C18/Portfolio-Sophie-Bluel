@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="assets/style.css">
 	<script src="https://kit.fontawesome.com/3d0b8684a3.js" crossorigin="anonymous"></script>
@@ -24,7 +24,7 @@
 			<ul>
 				<li><a href="#portfolio">projets</a></li>
 				<li><a href="#contact">contact</a></li>
-				<li id="loginButton"><a href="login.html">login</a></li>
+				<li id="loginButton" ><a href="login.html">login</a></li>
 				<li class="edition" id="logoutButton"><a href="#">logout</a></li>
 				<li><a href="#"><img src="assets/icons/instagram.png" alt="Instagram"></a></li>
 			</ul>
@@ -50,13 +50,9 @@
 	<section id="portfolio">
 		<div id="portfolioTitle">
 			<h2>Mes Projets</h2>
-			<a href="#projectModal" id="projectEdition" class="edition"><i class="fa-regular fa-pen-to-square"></i>modifier</a>
-			<aside id="projectModal" class="modal">
-				<div id="projectModalWrapper" aria-hidden="true" role="application" aria-label="projectModalTitle">
-					<h1 id="projectModalTitle">Galerie photo</h1>
-
-				</div>
-			</aside>
+			<button id="projectEdition" class="edition"><i class="fa-regular fa-pen-to-square"></i>modifier</button>
+			<div id="modalContainer">
+			</div>
 		</div>
 		<div id="filters">
 			<button id="allFilter">Tous</button>
@@ -92,7 +88,5 @@
 <script type="module" src="scripts/script.js"></script>
 <script type="module" src="scripts/admin.js"></script>
 <script type="module" src="scripts/modal.js"></script>
-
 </body>
-
 </html>

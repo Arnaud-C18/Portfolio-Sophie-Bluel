@@ -1,20 +1,30 @@
 let token = localStorage.getItem("token")
-console.log(token)
 
-/*Affichage des éléments admin*/
+/*Elements admin*/
+const editItems = document.querySelectorAll(".edition")
+
+/*Dissimulation des elements admin*/
+
+function hideEdition() {
+    for (let item of editItems) {
+        item.style.display = "none";
+    }
+}
+
+/*Affichage des elements admin*/
 
 function admin() {
-    document.querySelector("#editionBar").style.display = "flex";
-    document.querySelector("#pictureEdition").style.display = "flex";
-    document.querySelector("#introEdition").style.display = "flex";
-    document.querySelector("#projectEdition").style.display = "flex";
-    document.querySelector("#loginButton").style.display = "none";
-    document.querySelector("#logoutButton").style.display = "flex";
+    for (let item of editItems) {
+        item.style.display = "flex";
+        document.querySelector("#loginButton").style.display = "none";
+    };
 };
 
-if (token != null ) {
+if (token) {
     admin();
-};
+} else {
+    hideEdition()
+}
 
 /*Boutton de déconnexion*/
 
