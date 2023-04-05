@@ -66,11 +66,11 @@
 	<section id="contact">
 		<h2>Contact</h2>
 		<p>Vous avez un projet ? Discutons-en !</p>
-		<form method="post">
+		<form id="contactForm" method="post">
 			<label for="name">Nom</label>
-			<input type="text" name="name" id="name">
+			<input type="text" name="name" id="name" class="contactInput">
 			<label for="email">Email</label>
-			<input type="email" name="email" id="email">
+			<input type="email" name="email" id="email" class="contactInput">
 			<label for="message">Message</label>
 			<textarea name="message" id="message" cols="30" rows="10"></textarea>
 			<button id="sendButton">Envoyer</button> 
@@ -88,5 +88,6 @@
 <script type="module" src="scripts/script.js"></script>
 <script type="module" src="scripts/admin.js"></script>
 <script type="module" src="scripts/modal.js"></script>
+<script type="module" src="scripts/form.js"></script>
 </body>
 </html>

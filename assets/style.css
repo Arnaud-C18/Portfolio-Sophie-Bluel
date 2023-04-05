@@ -329,14 +329,14 @@ main {
 	margin-bottom: 20px;
 }
 
-#contact form {
+#contactForm {
 	text-align: left;
 	margin-top: 30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact input {
+.contactInput {
 	font-size: 30px;
 	padding: 10px;
 	border: none;
@@ -406,12 +406,12 @@ label {
 	margin-bottom: 5px;
 }
 
-form {
+#connectionForm {
 	display: flex;
 	flex-direction: column;
 }
 
-input {
+.connectionInput {
 	font-size: 30px;
 	padding: 10px;
 	margin-bottom: 30px;
@@ -504,6 +504,7 @@ footer {
 	overflow: auto;
 	width: 630px;
 	height: 80%;
+	max-height: 600px;
 	padding: 20px;
 	border-radius: 10px;
 }
@@ -543,7 +544,7 @@ footer {
 }
 
 #editionGallery figure {
-	max-width: 18%;
+	width: 78px;
 	height: 100px;
 	margin-bottom: 35px;
 }
@@ -555,11 +556,19 @@ footer {
 	object-position: center;
 }
 
+.imageDeleteButton {
+	position: absolute;
+	color: white;
+	background-color: black;
+	cursor: pointer;
+	border: none;
+}
+
 #editionGallery figcaption {
 	margin-bottom: 10px;
 }
 
-#addProject {
+#addProjectButton {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -576,7 +585,7 @@ footer {
 	cursor: pointer;
 }
 
-#deleteGallery {
+#deleteGalleryButton {
 	width: 150px;
 	height: 25px;
 	margin-top: 25px;
@@ -591,30 +600,6 @@ footer {
 
 /*Modal d'ajout de projet*/
 
-#addProjectModal {
-	display: none;
-	align-items: center;
-	justify-content: center;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.4);
-}
-
-#addProjectModalWrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background-color: white;
-	overflow: auto;
-	width: 630px;
-	height: 80%;
-	padding: 20px;
-	border-radius: 10px;
-}
-
 #returnGallery {
 	background-color: white;
 	border: none;
@@ -626,8 +611,11 @@ footer {
 	margin-right: 92%;
 }
 
-#modalContainer form {
+#addImageForm {
+	display: flex;
+	flex-direction: column;
 	height: 90%;
+	min-height: 400px;
 	width: 70%;
 	align-items: center;
 	justify-content: space-around;
@@ -638,12 +626,12 @@ footer {
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-	height: 35%;
+	height: 200px;
 	width: 100%;
 	background-color: #E8F1F6;
 	border-radius: 3px;
-	margin-top: 30px;
-	margin-bottom: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 #addImageSection i {
@@ -651,7 +639,12 @@ footer {
 	color: #B9C5CC;
 }
 
-#label-file {
+#addImageSection p {
+	font-family: Work Sans;
+	font-size: 12px;
+}
+
+#fileInputLabel {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -667,16 +660,11 @@ footer {
 	cursor: pointer;
 }
 
-#file {
+#fileInput {
 	display: none;
 }
 
-#addImageSection p {
-	font-family: Work Sans;
-	font-size: 12px;
-}
-
-#addImageRessourceLabel {
+.addImageRessourceLabel {
 	display: flex;
 	font-family: Work Sans;
 	font-size: 14px;
@@ -686,8 +674,18 @@ footer {
 }
 
 .addImageRessource {
-	width: 95%;
-	height: 20px;
+	border: none;
+	width: 100%;
+	height: 50px;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.15);
+	font-family: Work Sans;
+	font-size: 16px;
+	padding-left: 10px;
+	outline: none;
+}
+
+#addImageTitle {
+	width: 97%;
 }
 
 #addImageValidation {
@@ -700,5 +698,21 @@ footer {
 	font-weight: 700;
 	background: #A7A7A7;
 	border-radius: 60px;
+	margin-top: 10px;
 	cursor: pointer;
+}
+
+.wrongFileText {
+	font-family: Work Sans;
+	color: red;
+	font-weight: 700;
+	font-size: 15px;
+}
+
+#selectedImage {
+	height: 200px;
+}
+
+#selectedImage img {
+	height: 100%;
 }
