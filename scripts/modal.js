@@ -264,3 +264,18 @@ const sendForm = function () {
     }
 }
 
+
+function formValidation() {
+    const validationButton = document.querySelector("#addImageValidation");
+    const title = document.querySelector("#addImageTitle").value;
+    const category = document.querySelector("#addImageCategory").value;
+    const titleRegex = /[A-Za-z.&"',-\d\s]{3,40}/;
+    if (currentlyDisplayImage) {
+        if (titleRegex.test(title)) {
+            if (category != "") {
+                validationButton.style.backgroundColor = "#1D6154"
+                validForm = true
+            }
+        }
+    }
+}
