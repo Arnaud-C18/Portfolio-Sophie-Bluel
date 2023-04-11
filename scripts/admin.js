@@ -1,5 +1,5 @@
 let token = localStorage.getItem("token");
-export {token};
+export { token };
 
 /*Elements admin*/
 const editItems = document.querySelectorAll(".edition")

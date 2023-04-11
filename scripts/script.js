@@ -13,10 +13,10 @@ async function generateWorks(works) {
         const imageElement = document.createElement("img");
         imageElement.src = projets.imageUrl;
         imageElement.alt = projets.title;
-        imageElement.crossOrigin="anonymous"
+        imageElement.crossOrigin = "anonymous"
         const captionElement = document.createElement("figcaption");
         captionElement.innerText = projets.title;
-        
+
         gallery.appendChild(element);
         element.appendChild(imageElement);
         element.appendChild(captionElement);
@@ -29,15 +29,15 @@ generateWorks(works);
 
 /*Filtre des projets*/
 
-document.querySelectorAll(".filter").forEach(el=>el.addEventListener("click", function(e) {
+document.querySelectorAll(".filter").forEach(el => el.addEventListener("click", function (e) {
     let filterId = e.srcElement.value;
-    if (filterId == "null"){
+    if (filterId == "null") {
         const worksFiltered = works.filter(function (work) {
             return work.categoryId !== null;
         });
         document.querySelector("#gallery").innerHTML = "";
         generateWorks(worksFiltered);
-    }else{
+    } else {
         const worksFiltered = works.filter(function (work) {
             return work.categoryId == filterId;
         })

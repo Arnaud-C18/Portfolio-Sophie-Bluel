@@ -32,7 +32,7 @@ const openGalleryModal = function () {
     document.querySelector("#modalClose").addEventListener("click", closeGalleryModal);
     document.querySelectorAll(".deleteElementButton").forEach(el => el.addEventListener("click", deleteElement));
     document.querySelector("#addProjectButton").addEventListener("click", openAddProjectModal);
-    
+
     currentlyOpenModal = "galleryModal"
 }
 
@@ -157,7 +157,7 @@ let currentlyDisplayImage = false;
 
 const closeAddProjectModal = function () {
     document.querySelector("#projectModal").removeEventListener("click", closeAddProjectModal);
-    document.querySelector("#modalWrapper").removeEventListener("click", stopPropagation);    
+    document.querySelector("#modalWrapper").removeEventListener("click", stopPropagation);
     document.querySelector("#returnGallery").addEventListener("click", openGalleryModal);
     document.querySelector("#modalClose").removeEventListener("click", closeAddProjectModal);
     if (currentlyDisplayImage = false) {
@@ -260,7 +260,7 @@ const sendForm = function () {
                 "categoryId": formCategory
             }),
         })
-    openGalleryModal;
+        openGalleryModal;
     }
 }
 

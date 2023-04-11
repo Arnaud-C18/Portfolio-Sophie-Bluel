@@ -27,7 +27,7 @@ document
       const response = await login(user, "http://localhost:5678/api/users/login")
         .then(response => response.json())
         .then(data => localStorage.setItem("token", data.token))
-        window.location.href = "index.html"
+      window.location.href = "index.html"
     }
 
     catch (error) {
