@@ -1,18 +1,17 @@
-async function loginFetch(data, url) {
-  const myHeader = new Headers({
-    'Content-Type': 'application/json;charset=utf-8',
-    'accept': 'application/json'
-  })
+async function login(data, url) {
   const postHttpOptions = {
-    method: "POST",
-    headers: myHeader,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8',
+      'accept': 'application/json'
+    },
     body: JSON.stringify(data)
   }
-  const reponse = await fetch(url, postHttpOptions)
-  return reponse
+  let response = await fetch(url, postHttpOptions);
+  return response
 }
 
-
+const token = undefined;
 
 document
   .getElementById("connectionForm").onsubmit = async (event) => {
@@ -25,13 +24,17 @@ document
     }
 
     try {
-      const response = await loginFetch(user, "http://localhost:5678/api/users/login")
+      const response = await login(user, "http://localhost:5678/api/users/login")
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => localStorage.setItem("token", data.token))
+        window.location.href = "index.html"
     }
+
     catch (error) {
       console.log({
         message: error
       })
     }
+
   }
+

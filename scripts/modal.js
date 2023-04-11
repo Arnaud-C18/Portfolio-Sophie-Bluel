@@ -1,12 +1,16 @@
 /*Importation des projets*/
 import { works } from "./script.js";
-import {token} from "./admin.js"
+import { token } from "./admin.js"
 
 /*Modal galerie*/
 
 let modalContainer = document.querySelector("#modalContainer");
+let currentlyOpenModal = null;
 
-const openGalleryModal = function (e) {
+const openGalleryModal = function () {
+    if (currentlyOpenModal = "addProjectModal") {
+        closeAddProjectModal
+    };
     modalContainer.innerHTML =
         '<aside id="projectModal" class="modal" aria-modal="true" aria-labelledby="modalTitle">'
         + '<div id="modalWrapper">'
@@ -26,7 +30,10 @@ const openGalleryModal = function (e) {
     document.querySelector("#projectModal").addEventListener("click", closeGalleryModal);
     document.querySelector("#modalWrapper").addEventListener("click", stopPropagation);
     document.querySelector("#modalClose").addEventListener("click", closeGalleryModal);
+    document.querySelectorAll(".deleteElementButton").forEach(el => el.addEventListener("click", deleteElement));
     document.querySelector("#addProjectButton").addEventListener("click", openAddProjectModal);
+    
+    currentlyOpenModal = "galleryModal"
 }
 
 
@@ -34,9 +41,11 @@ const closeGalleryModal = function () {
     document.querySelector("#projectModal").removeEventListener("click", closeGalleryModal);
     document.querySelector("#modalWrapper").removeEventListener("click", stopPropagation);
     document.querySelector("#modalClose").removeEventListener("click", closeGalleryModal);
+    document.querySelectorAll(".deleteElementButton").forEach(el => el.removeEventListener("click", deleteElement));
     document.querySelector("#addProjectButton").removeEventListener("click", openAddProjectModal);
     modalContainer.innerHTML = "";
-}
+    currentlyOpenModal = null;
+};
 
 /*Generation des projets dans la modal galerie*/
 
@@ -44,21 +53,25 @@ const generateProjectsEdition = function (works) {
     for (let i = 0; i < works.length; i++) {
         const projets = works[i];
         const editionGallery = document.querySelector("#editionGallery");
-        const element = document.createElement("figure");
-        const imageElement = document.createElement("img");
-        imageElement.src = projets.imageUrl;
-        imageElement.alt = projets.title;
-        imageElement.crossOrigin = "anonymous"
-        const deleteElement = document.createElement("button");
-        deleteElement.className = "imageDeleteButton";
-        deleteElement.innerHTML = '<i class="fa-solid fa-trash-can"></i>'
+        const elementContainer = document.createElement("div");
+        elementContainer.className = "elementContainer"
+        const elementFigure = document.createElement("figure");
+        const elementImage = document.createElement("img");
+        elementImage.src = projets.imageUrl;
+        elementImage.alt = projets.title;
+        elementImage.crossOrigin = "anonymous"
+        const deleteElementButton = document.createElement("button");
+        deleteElementButton.className = "deleteElementButton";
+        deleteElementButton.value = projets.id;
+        deleteElementButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>'
         const captionElement = document.createElement("figcaption");
         captionElement.innerText = "éditer";
 
-        editionGallery.appendChild(element);
-        element.appendChild(imageElement);
-        element.appendChild(deleteElement);
-        element.appendChild(captionElement)
+        editionGallery.appendChild(elementContainer);
+        elementContainer.appendChild(elementFigure);
+        elementFigure.appendChild(elementImage);
+        elementContainer.appendChild(deleteElementButton);
+        elementFigure.appendChild(captionElement);
     };
 };
 
@@ -71,11 +84,32 @@ const preventDefault = function (e) {
     e.preventDefault()
 };
 
+/*Suppression d'élément*/
+
+const deleteElement = function (e) {
+    let buttonId = e.srcElement.offsetParent.value;
+    let requestLink = "http://localhost:5678/api/works/" + buttonId;
+    fetch(requestLink, {
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+            'accept': 'application/json',
+            'jsonwebtoken': token
+        },
+        method: 'delete',
+        body: JSON.stringify({
+            "id": buttonId,
+        }),
+    })
+    openGalleryModal;
+};
+
+
 document.querySelector("#projectEdition").addEventListener("click", openGalleryModal);
 
 /*Modal ajout de projet*/
 
 const openAddProjectModal = function () {
+    closeGalleryModal
     modalContainer.innerHTML =
         '<aside id="projectModal" class="modal" aria-labelledby="modalTitle">'
         + '<div id="modalWrapper">'
@@ -115,21 +149,25 @@ const openAddProjectModal = function () {
     document.querySelector("#addImageForm").addEventListener("change", formValidation);
     document.querySelector("#sendFormButton").addEventListener("click", preventDefault);
     document.querySelector("#sendFormButton").addEventListener("click", sendForm)
+
+    currentlyOpenModal = "addProjectModal"
 };
 
 let currentlyDisplayImage = false;
-export { currentlyDisplayImage };
 
-const closeAddProjectModal = function (e) {
+const closeAddProjectModal = function () {
     document.querySelector("#projectModal").removeEventListener("click", closeAddProjectModal);
-    document.querySelector("#modalWrapper").removeEventListener("click", stopPropagation);
-    document.querySelector("#returnGallery").removeEventListener("click", openGalleryModal);
+    document.querySelector("#modalWrapper").removeEventListener("click", stopPropagation);    
+    document.querySelector("#returnGallery").addEventListener("click", openGalleryModal);
     document.querySelector("#modalClose").removeEventListener("click", closeAddProjectModal);
     if (currentlyDisplayImage = false) {
         document.querySelector("#fileInput").removeEventListener("change", previewFile);
     }
     document.querySelector("#addImageForm").removeEventListener("change", formValidation)
+    document.querySelector("#sendFormButton").removeEventListener("click", preventDefault);
+    document.querySelector("#sendFormButton").removeEventListener("click", sendForm)
     modalContainer.innerHTML = "";
+    currentlyOpenModal = null;
 }
 
 /*Prévision de l'image*/
@@ -160,12 +198,12 @@ function previewFile() {
     }
 }
 
-function displayImage(event, file) {
+function displayImage(e) {
     const figureElement = document.createElement("figure");
     figureElement.id = "selectedImage";
 
     const imageElement = document.createElement("img");
-    imageElement.src = event.target.result;
+    imageElement.src = e.target.result;
 
     figureElement.appendChild(imageElement);
 
@@ -202,14 +240,14 @@ function formValidation() {
 
 /*Envoie du formulaire*/
 
-const sendForm = function() {
+const sendForm = function () {
     if (validForm) {
         let formTitle = document.querySelector("#addImageTitle").value;
         let figure = document.querySelector("#selectedImage");
         let image = figure.getElementsByTagName('img');
         let imageUrl = image.item(0).src;
         let formCategory = document.querySelector("#addImageCategory").value
-        fetch ("http://localhost:5678/api/works", {
+        fetch("http://localhost:5678/api/works", {
             headers: {
                 'Content-Type': 'application/json;charset=utf-8',
                 'accept': 'application/json',
@@ -222,5 +260,7 @@ const sendForm = function() {
                 "categoryId": formCategory
             }),
         })
+    openGalleryModal;
     }
 }
+

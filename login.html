@@ -12,24 +12,26 @@
 </head>
 <body>
 <header>
-	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-	<nav>
-		<ul>
-			<li><a href="index.html">projets</a></li>
-			<li><a href="index.html#contact">contact</a></li>
-			<li id="login">login</li>
-			<li><img src="assets/icons/instagram.png" alt="Instagram"></li>
-		</ul>
-	</nav>
+	<div id="headerContent">
+		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">projets</a></li>
+				<li><a href="index.html#contact">contact</a></li>
+				<li id="login">login</li>
+				<li><img src="assets/icons/instagram.png" alt="Instagram"></li>
+			</ul>
+		</nav>
+	</div>
 </header>
 <main>
 	<section id="loginSection">
 		<h2>Log In</h2>
 		<form method="post" id="connectionForm">
 			<label for="email">E-mail</label>
-			<input type="email" name="email" id="connectionEmail">
+			<input type="email" name="email" id="connectionEmail" class="connectionInput" value="sophie.bluel@test.tld">
 			<label for="password">Mot de passe</label>
-			<input type="password" name="password" id="password">
+			<input type="password" name="password" id="password" class="connectionInput" value="S0phie">
        		<button type="submit" id="connectButton">Se connecter</button>
 		</form>
         <p><a id="forgotPassword" href="#">Mot de passe oublié</a></p>

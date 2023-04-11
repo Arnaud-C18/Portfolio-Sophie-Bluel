@@ -141,7 +141,6 @@ table {
 
 /** end reset css**/
 body {
-	max-width: 1140px;
 	margin: auto;
 	font-family: 'Work Sans';
 	font-size: 14px;
@@ -149,8 +148,25 @@ body {
 
 header {
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
-	margin: 50px 0
+}
+
+#applyChanges {
+	height: 38px;
+	width: 216px;
+	background: #FFFFFF;
+	border-radius: 60px;
+	font-size: 14px;
+}
+
+#headerContent {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 1140px;
+	margin: auto;
+	margin-top: 35px;
 }
 
 section {
@@ -197,8 +213,8 @@ li a:hover {
 }
 
 nav img {
-    margin-top: 5px;
-    height: 20px;
+	margin-top: 5px;
+	height: 20px;
 }
 
 #introduction {
@@ -216,16 +232,42 @@ nav img {
 	width: 80%;
 }
 
+#introduction label {
+	display: flex;
+	margin: auto;
+	width: 80%;
+	margin-top: 10px;
+}
+
 #introduction article {
-	flex: 1
+	flex: 1;
+	height: 245px;
+	margin-top: -50px;
 }
 
 #introduction h2 {
 	margin-bottom: 1em;
+	margin-top: 30px;
 }
 
 #introduction p {
 	margin-bottom: 0.5em;
+}
+
+main {
+	max-width: 1140px;
+	margin: auto;
+}
+
+#portfolioTitle {
+	display: flex;
+	justify-content: center;
+	margin-top: 100px;
+}
+
+#portfolioTitle a {
+	margin-top: 10px;
+	margin-left: 10px;
 }
 
 #portfolio h2 {
@@ -270,7 +312,7 @@ nav img {
 
 #filters button:hover {
 	color: white;
-	background-color: #1D6154 ;
+	background-color: #1D6154;
 }
 
 
@@ -287,16 +329,16 @@ nav img {
 	margin-bottom: 20px;
 }
 
-#contact form {
+#contactForm {
 	text-align: left;
 	margin-top: 30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact input {
+.contactInput {
 	font-size: 30px;
-    padding: 10px;
+	padding: 10px;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
@@ -328,6 +370,11 @@ nav img {
 	background-color: #0E2F28;
 }
 
+footer {
+	max-width: 1140px;
+	margin: auto;
+}
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
@@ -341,48 +388,48 @@ footer nav ul {
 }
 
 #loginSection {
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	width: 400px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	margin: auto;
 	margin-top: 150px;
 }
 
 #loginSection h2 {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 35px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 35px;
 }
 
 label {
-    margin-bottom: 5px;
+	margin-bottom: 5px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+#connectionForm {
+	display: flex;
+	flex-direction: column;
 }
 
-input {
-    font-size: 30px;
-    padding: 10px;
-    margin-bottom: 30px;
-    border-color: white;
-    border: solid 1px white;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+.connectionInput {
+	font-size: 30px;
+	padding: 10px;
+	margin-bottom: 30px;
+	border-color: white;
+	border: solid 1px white;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
 #connectButton {
-    color: white;
-    background: #1D6154;
-    border: none;
-    font-family: "Syne";
-    border-radius: 60px;
+	color: white;
+	background: #1D6154;
+	border: none;
+	font-family: "Syne";
+	border-radius: 60px;
 	margin: auto;
-    width: 179px;
-    height: 36px;
-    margin-bottom: 25px;
+	width: 179px;
+	height: 36px;
+	margin-bottom: 25px;
 }
 
 #connectButton:hover {
@@ -390,10 +437,287 @@ input {
 }
 
 #forgotPassword {
-    color: black;
+	color: black;
 	text-decoration: underline;
 }
 
 footer {
-    margin-top: 300px;
+	margin-top: 300px;
+}
+
+/*Mod Admin*/
+
+#editionBar {
+	height: 59px;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	color: white;
+}
+
+#editionBar i {
+	color: white;
+}
+
+#editionBar p {
+	margin: 10px;
+}
+
+#applyChanges {
+	cursor: pointer;
+	border: none;
+}
+
+#gallery img {
+	margin-bottom: 5px;
+}
+
+#projectEdition {
+	background-color: white;
+	border: none;
+	height: 20px;
+	margin-top: 10px;
+	margin-left: 5px;
+	cursor: pointer;
+
+}
+
+/*Modal de galerie*/
+
+#projectModal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+}
+
+#modalWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: white;
+	overflow: auto;
+	width: 630px;
+	height: 80%;
+	max-height: 600px;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+#modalButton {
+	display: flex;
+	justify-content: flex-end;
+	width: 95%;
+}
+
+#modalClose {
+	background-color: white;
+	border: none;
+	color: black;
+	width: 24px;
+	height: 24px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+#modalTitle {
+	font-weight: 400;
+	font-size: 26px;
+	color: black;
+}
+
+#editionGallery {
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	width: 70%;
+	height: 70%;
+	overflow: auto;
+	margin-top: 40px;
+	justify-content: space-between;
+	border-bottom: 1px solid #B3B3B3;
+}
+
+.elementContainer {
+	height: 130px;
+}
+
+#editionGallery figure {
+	position: static;
+	width: 78px;
+	height: 100px;
+	margin-bottom: 35px;
+}
+
+#editionGallery figure img {
+	position: static;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	object-position: center;
+}
+
+.deleteElementButton {
+	position: relative;
+	left: 50px;
+	bottom: 130px;
+	z-index: 1;
+	color: white;
+	background-color: black;
+	cursor: pointer;
+	border: none;
+}
+
+#addProjectButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 237px;
+	height: 36px;
+	background: #1D6154;
+	border-radius: 60px;
+	color: white;
+	border: none;
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 14px;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+#deleteGalleryButton {
+	width: 150px;
+	height: 25px;
+	margin-top: 25px;
+	font-family: 'Syne';
+	font-weight: 400;
+	font-size: 14px;
+	color: #D65353;
+	border: none;
+	background-color: white;
+	cursor: pointer;
+}
+
+/*Modal d'ajout de projet*/
+
+#returnGallery {
+	background-color: white;
+	border: none;
+	color: black;
+	width: 24px;
+	height: 24px;
+	font-size: 20px;
+	cursor: pointer;
+	margin-right: 92%;
+}
+
+#addImageForm {
+	display: flex;
+	flex-direction: column;
+	height: 90%;
+	min-height: 400px;
+	width: 70%;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#addImageSection {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 200px;
+	width: 100%;
+	background-color: #E8F1F6;
+	border-radius: 3px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#addImageSection i {
+	font-size: 70px;
+	color: #B9C5CC;
+}
+
+#addImageSection p {
+	font-family: Work Sans;
+	font-size: 12px;
+}
+
+#fileInputLabel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 173px;
+	height: 36px;
+	color: #306685;
+	background-color: #CBD6DC;
+	border-radius: 50px;
+	font-family: Work Sans;
+	font-size: 14px;
+	font-weight: 1000;
+	border: none;
+	cursor: pointer;
+}
+
+#fileInput {
+	display: none;
+}
+
+.addImageRessourceLabel {
+	display: flex;
+	font-family: Work Sans;
+	font-size: 14px;
+	font-weight: 500;
+	width: 100%;
+	align-items: start;
+	margin-top: 15px;
+}
+
+.addImageRessource {
+	border: none;
+	width: 100%;
+	height: 50px;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.15);
+	font-family: Work Sans;
+	font-size: 16px;
+	padding-left: 10px;
+	outline: none;
+}
+
+#addImageTitle {
+	width: 97%;
+}
+
+#sendFormButton {
+	height: 50px;
+	width: 60%;
+	border: none;
+	color: white;
+	font-family: Syne;
+	font-size: 14px;
+	font-weight: 700;
+	background: #A7A7A7;
+	border-radius: 60px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.wrongFileText {
+	font-family: Work Sans;
+	font-weight: 700;
+	font-size: 15px;
+}
+
+#selectedImage {
+	height: 200px;
+}
+
+#selectedImage img {
+	height: 100%;
 }
