@@ -131,7 +131,6 @@ blockquote:after,
 q:before,
 q:after {
 	content: '';
-	content: none;
 }
 
 table {
@@ -183,8 +182,6 @@ header {
 	margin-top: 35px;
 	width: 100%;
 	max-width: 1140px;
-	margin: auto;
-	margin-top: 35px;
 }
 
 section {
@@ -233,8 +230,6 @@ li a:hover {
 nav img {
 	margin-top: 5px;
 	height: 20px;
-	margin-top: 5px;
-	height: 20px;
 }
 
 #introduction {
@@ -263,14 +258,10 @@ nav img {
 	flex: 1;
 	height: 245px;
 	margin-top: -50px;
-	flex: 1;
-	height: 245px;
-	margin-top: -50px;
 }
 
 #introduction h2 {
 	margin-bottom: 1em;
-	margin-top: 30px;
 	margin-top: 30px;
 }
 
@@ -353,7 +344,6 @@ main {
 #filters button:hover {
 	color: white;
 	background-color: #1D6154;
-	background-color: #1D6154;
 }
 
 
@@ -371,7 +361,6 @@ main {
 }
 
 #contactForm {
-#contactForm {
 	text-align: left;
 	margin-top: 30px;
 	display: flex;
@@ -379,9 +368,7 @@ main {
 }
 
 .contactInput {
-.contactInput {
 	font-size: 30px;
-	padding: 10px;
 	padding: 10px;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
@@ -419,11 +406,6 @@ footer {
 	margin: auto;
 }
 
-footer {
-	max-width: 1140px;
-	margin: auto;
-}
-
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
@@ -441,10 +423,6 @@ footer nav ul {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 400px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 	margin: auto;
 	margin-top: 150px;
 }
@@ -453,31 +431,17 @@ footer nav ul {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 35px;
-	display: flex;
-	justify-content: center;
-	margin-bottom: 35px;
 }
 
 label {
 	margin-bottom: 5px;
-	margin-bottom: 5px;
 }
 
 #connectionForm {
 	display: flex;
 	flex-direction: column;
-#connectionForm {
-	display: flex;
-	flex-direction: column;
 }
 
-.connectionInput {
-	font-size: 30px;
-	padding: 10px;
-	margin-bottom: 30px;
-	border-color: white;
-	border: solid 1px white;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 .connectionInput {
 	font-size: 30px;
 	padding: 10px;
@@ -493,15 +457,7 @@ label {
 	border: none;
 	font-family: "Syne";
 	border-radius: 60px;
-	color: white;
-	background: #1D6154;
-	border: none;
-	font-family: "Syne";
-	border-radius: 60px;
 	margin: auto;
-	width: 179px;
-	height: 36px;
-	margin-bottom: 25px;
 	width: 179px;
 	height: 36px;
 	margin-bottom: 25px;
@@ -513,12 +469,10 @@ label {
 
 #forgotPassword {
 	color: black;
-	color: black;
 	text-decoration: underline;
 }
 
 footer {
-	margin-top: 300px;
 	margin-top: 300px;
 }
 
