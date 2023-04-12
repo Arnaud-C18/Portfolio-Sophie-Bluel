@@ -161,7 +161,6 @@ header {
 
 #headerContent {
 	display: flex;
-	flex-direction: column;
 	justify-content: space-between;
 }
 
@@ -381,6 +380,7 @@ main {
 #message {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	padding: 10px;
 }
 
 #sendButton {
@@ -402,8 +402,14 @@ main {
 }
 
 footer {
-	max-width: 1140px;
-	margin: auto;
+	display: flex;
+	justify-content: end;
+	width: 90%;
+	margin-left: 5%;
+	margin-bottom: 20px;
+	margin-top: 100px;
+	font-family: Work Sans;
+	font-size: 14px;
 }
 
 footer nav ul {
@@ -470,10 +476,6 @@ label {
 #forgotPassword {
 	color: black;
 	text-decoration: underline;
-}
-
-footer {
-	margin-top: 300px;
 }
 
 /*Mod Admin*/
@@ -735,7 +737,7 @@ footer {
 	font-weight: 700;
 	background: #A7A7A7;
 	border-radius: 60px;
-	margin-top: 10px;
+	margin-top: 20px;
 	cursor: pointer;
 }
 

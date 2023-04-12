@@ -98,7 +98,9 @@ const deleteElement = function (e) {
         method: 'delete',
         body: JSON.stringify({
             "id": buttonId,
-        }),
+        })
+        .then(response => response.json())
+        .catch(error => console.log(error)),
     })
     openGalleryModal;
 };
@@ -258,7 +260,9 @@ const sendForm = function () {
                 "title": formTitle,
                 "imageUrl": imageUrl,
                 "categoryId": formCategory
-            }),
+            })
+            .then(response => response.json())
+            .catch(error => console.log(error)),
         })
         openGalleryModal;
     }
