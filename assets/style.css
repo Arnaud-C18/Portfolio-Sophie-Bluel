@@ -659,17 +659,23 @@ label {
 	justify-content: space-around;
 }
 
-#addImageSection {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
+#imageSection {
 	height: 200px;
 	width: 100%;
 	background-color: #E8F1F6;
 	border-radius: 3px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+#addImageSection {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	
 }
 
 #addImageSection i {
@@ -680,6 +686,16 @@ label {
 #addImageSection p {
 	font-family: Work Sans;
 	font-size: 12px;
+}
+
+#showImageSection {
+	display: none;
+	justify-content: center;
+	height: 200px;
+}
+
+#showImage {
+	height: 100%;
 }
 
 #fileInputLabel {
@@ -745,12 +761,5 @@ label {
 	font-family: Work Sans;
 	font-weight: 700;
 	font-size: 15px;
-}
-
-#selectedImage {
-	height: 200px;
-}
-
-#selectedImage img {
-	height: 100%;
+	color:#D65353;
 }

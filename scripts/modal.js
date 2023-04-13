@@ -91,16 +91,9 @@ const deleteElement = function (e) {
     let requestLink = "http://localhost:5678/api/works/" + buttonId;
     fetch(requestLink, {
         headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-            'accept': 'application/json',
-            'jsonwebtoken': token
+            'Authorization': 'Bearer ' + token,
         },
         method: 'delete',
-        body: JSON.stringify({
-            "id": buttonId,
-        })
-        .then(response => response.json())
-        .catch(error => console.log(error)),
     })
     openGalleryModal;
 };
@@ -121,6 +114,7 @@ const openAddProjectModal = function () {
         + '</div>'
         + '<h1 id="modalTitle">Ajout photo</h1>'
         + '<form id="addImageForm">'
+        + '<div id="imageSection">'
         + '<div id="addImageSection">'
         + '<div id="imageInformation">'
         + '<i class="fa-regular fa-image"></i>'
@@ -128,6 +122,12 @@ const openAddProjectModal = function () {
         + '<label for="fileInput" id="fileInputLabel">+ Ajout photo</label>'
         + '<input type="file" id="fileInput" accept="image/jpeg, image/png">'
         + '<p>jpg.png : 4mo max</p>'
+        + '</div>'
+        + '<div id="showImageSection">'
+        + '<figure>'
+        + '<img src="" id="showImage">'
+        + '</figure>'
+        + '</div>'
         + '</div>'
         + '<label for="title" class="addImageRessourceLabel">Titre</label>'
         + '<input type="text" name="title" id="addImageTitle" class="addImageRessource">'
@@ -149,8 +149,9 @@ const openAddProjectModal = function () {
     document.querySelector("#modalClose").addEventListener("click", closeAddProjectModal);
     document.querySelector("#fileInput").addEventListener("change", previewFile);
     document.querySelector("#addImageForm").addEventListener("change", formValidation);
+    document.querySelector("#sendFormButton").addEventListener("click", sendForm);
     document.querySelector("#sendFormButton").addEventListener("click", preventDefault);
-    document.querySelector("#sendFormButton").addEventListener("click", sendForm)
+
 
     currentlyOpenModal = "addProjectModal"
 };
@@ -166,8 +167,8 @@ const closeAddProjectModal = function () {
         document.querySelector("#fileInput").removeEventListener("change", previewFile);
     }
     document.querySelector("#addImageForm").removeEventListener("change", formValidation)
-    document.querySelector("#sendFormButton").removeEventListener("click", preventDefault);
     document.querySelector("#sendFormButton").removeEventListener("click", sendForm)
+    document.querySelector("#sendFormButton").removeEventListener("click", preventDefault);
     modalContainer.innerHTML = "";
     currentlyOpenModal = null;
 }
@@ -178,7 +179,6 @@ function previewFile() {
     const fileExtensionRegex = /\.(jpe?g|png)$/i;
     if (fileExtensionRegex.test(this.files[0].name)) {
         if ((this.files[0].size) <= 4194304) {
-            document.querySelector("#addImageSection").innerHTML = ""
             const file = this.files[0];
             const fileReader = new FileReader();
             fileReader.readAsDataURL(file);
@@ -201,15 +201,9 @@ function previewFile() {
 }
 
 function displayImage(e) {
-    const figureElement = document.createElement("figure");
-    figureElement.id = "selectedImage";
-
-    const imageElement = document.createElement("img");
-    imageElement.src = e.target.result;
-
-    figureElement.appendChild(imageElement);
-
-    document.querySelector("#addImageSection").appendChild(figureElement);
+    document.querySelector("#addImageSection").style.display = "none";
+    document.querySelector("#showImageSection").style.display = "flex";
+    document.querySelector("#showImage").src = e.target.result;
 }
 
 /*Validation du formulaire*/
@@ -244,26 +238,23 @@ function formValidation() {
 
 const sendForm = function () {
     if (validForm) {
-        let formTitle = document.querySelector("#addImageTitle").value;
-        let figure = document.querySelector("#selectedImage");
-        let image = figure.getElementsByTagName('img');
-        let imageUrl = image.item(0).src;
-        let formCategory = document.querySelector("#addImageCategory").value
+        const formTitle = document.querySelector("#addImageTitle").value;
+        console.log(formTitle);
+        const image = document.querySelector("#fileInput").files[0];
+        console.log(image);
+        const formCategory = document.querySelector("#addImageCategory").value
+        console.log(formCategory);
+        const data = new FormData();
+        data.append("title", formTitle);
+        data.append("image", image, image.name);
+        data.append("categoryId", formCategory);
         fetch("http://localhost:5678/api/works", {
             headers: {
-                'Content-Type': 'application/json;charset=utf-8',
-                'accept': 'application/json',
-                'jsonwebtoken': token
+                'Authorization': 'Bearer ' + token,
             },
+            ContentType: 'multipart/form-data',
             method: 'post',
-            body: JSON.stringify({
-                "title": formTitle,
-                "imageUrl": imageUrl,
-                "categoryId": formCategory
-            })
-            .then(response => response.json())
-            .catch(error => console.log(error)),
-        })
-        openGalleryModal;
+            body: data,
+        });
     }
 }
