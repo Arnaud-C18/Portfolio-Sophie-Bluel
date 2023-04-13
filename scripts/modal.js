@@ -247,7 +247,7 @@ const sendForm = function () {
         const data = new FormData();
         data.append("title", formTitle);
         data.append("image", image, image.name);
-        data.append("categoryId", formCategory);
+        data.append("category", formCategory);
         fetch("http://localhost:5678/api/works", {
             headers: {
                 'Authorization': 'Bearer ' + token,

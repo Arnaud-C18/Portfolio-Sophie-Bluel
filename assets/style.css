@@ -566,18 +566,18 @@ label {
 
 #editionGallery {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: flex-start;
 	flex-wrap: wrap;
 	width: 70%;
 	height: 70%;
 	overflow: auto;
 	margin-top: 40px;
-	justify-content: space-between;
 	border-bottom: 1px solid #B3B3B3;
 }
 
 .elementContainer {
 	height: 130px;
+	margin-right: 6px;
 }
 
 #editionGallery figure {
