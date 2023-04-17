@@ -113,7 +113,7 @@ const openAddProjectModal = function () {
         + '<button id="modalClose"><i class="fa-solid fa-xmark"></i></button>'
         + '</div>'
         + '<h1 id="modalTitle">Ajout photo</h1>'
-        + '<form id="addImageForm">'
+        + '<form id="addImageForm" >'
         + '<div id="imageSection">'
         + '<div id="addImageSection">'
         + '<div id="imageInformation">'
@@ -138,7 +138,7 @@ const openAddProjectModal = function () {
         + '<option value="2">Appartements</option>'
         + '<option value="3">Hôtels & restaurants</option>'
         + '</select>'
-        + '<button id="sendFormButton">Valider</button>'
+        + '<input type="submit" id="sendFormButton" value="Envoyer">'
         + '</form>'
         + '</div>'
         + '</aside>';
@@ -149,9 +149,29 @@ const openAddProjectModal = function () {
     document.querySelector("#modalClose").addEventListener("click", closeAddProjectModal);
     document.querySelector("#fileInput").addEventListener("change", previewFile);
     document.querySelector("#addImageForm").addEventListener("change", formValidation);
-    document.querySelector("#sendFormButton").addEventListener("click", sendForm);
-    document.querySelector("#sendFormButton").addEventListener("click", preventDefault);
-
+    //document.querySelector("#sendFormButton").addEventListener("click", preventDefault);
+    //document.querySelector("#sendFormButton").addEventListener("click", sendForm);
+    document.querySelector("#addImageForm").onsubmit = function (e) {
+        console.log(e);
+        e.preventDefault();
+        if (validForm) {
+            const formTitle = document.querySelector("#addImageTitle").value;
+            const image = document.querySelector("#fileInput").files[0];
+            const formCategory = document.querySelector("#addImageCategory").value;
+            const data = new FormData();
+            data.append("title", formTitle);
+            data.append("image", image, image.name);
+            data.append("category", formCategory);
+            fetch("http://localhost:5678/api/works", {
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                },
+                ContentType: 'multipart/form-data',
+                method: 'post',
+                body: data,
+            });
+        }
+    };
 
     currentlyOpenModal = "addProjectModal"
 };
@@ -167,8 +187,8 @@ const closeAddProjectModal = function () {
         document.querySelector("#fileInput").removeEventListener("change", previewFile);
     }
     document.querySelector("#addImageForm").removeEventListener("change", formValidation)
-    document.querySelector("#sendFormButton").removeEventListener("click", sendForm)
-    document.querySelector("#sendFormButton").removeEventListener("click", preventDefault);
+    //document.querySelector("#sendFormButton").addEventListener("click", preventDefault);
+    //document.querySelector("#sendFormButton").addEventListener("click", sendForm);
     modalContainer.innerHTML = "";
     currentlyOpenModal = null;
 }
@@ -236,14 +256,11 @@ function formValidation() {
 
 /*Envoie du formulaire*/
 
-const sendForm = function () {
+/*const sendForm = function () {
     if (validForm) {
         const formTitle = document.querySelector("#addImageTitle").value;
-        console.log(formTitle);
         const image = document.querySelector("#fileInput").files[0];
-        console.log(image);
         const formCategory = document.querySelector("#addImageCategory").value
-        console.log(formCategory);
         const data = new FormData();
         data.append("title", formTitle);
         data.append("image", image, image.name);
@@ -257,4 +274,26 @@ const sendForm = function () {
             body: data,
         });
     }
-}
+}*/
+
+/*const sendForm = function (e) {
+    console.log(e);
+    e.preventDefault();
+    if (validForm) {
+        const formTitle = document.querySelector("#addImageTitle").value;
+        const image = document.querySelector("#fileInput").files[0];
+        const formCategory = document.querySelector("#addImageCategory").value;
+        const data = new FormData();
+        data.append("title", formTitle);
+        data.append("image", image, image.name);
+        data.append("category", formCategory);
+        fetch("http://localhost:5678/api/works", {
+            headers: {
+                'Authorization': 'Bearer ' + token,
+            },
+            ContentType: 'multipart/form-data',
+            method: 'post',
+            body: data,
+        });
+    }
+};*/
