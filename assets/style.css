@@ -481,6 +481,9 @@ label {
 /*Mod Admin*/
 
 #editionBar {
+	display: flex;
+	position: sticky;
+	top: 0;
 	height: 59px;
 	justify-content: center;
 	align-items: center;
@@ -595,15 +598,33 @@ label {
 	object-position: center;
 }
 
-.deleteElementButton {
+.elementButton {
 	position: relative;
-	left: 50px;
 	bottom: 130px;
 	z-index: 1;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.moveElementButton {
+	display: none;
 	color: white;
 	background-color: black;
 	cursor: pointer;
 	border: none;
+	margin-right: 4px;
+}
+
+.elementContainer:hover .moveElementButton {
+	display: block;
+} 
+
+.deleteElementButton {
+	color: white;
+	background-color: black;
+	cursor: pointer;
+	border: none;
+	margin-right: 4px;
 }
 
 #addProjectButton {
