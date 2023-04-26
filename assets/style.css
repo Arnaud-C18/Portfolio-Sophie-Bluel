@@ -613,6 +613,8 @@ label {
 	cursor: pointer;
 	border: none;
 	margin-right: 4px;
+	padding: 0px;
+	width: 20px;
 }
 
 .elementContainer:hover .moveElementButton {
@@ -625,6 +627,11 @@ label {
 	cursor: pointer;
 	border: none;
 	margin-right: 4px;
+	padding: 0px;
+}
+
+.deleteElementButton i {
+	padding: 3px;
 }
 
 #addProjectButton {

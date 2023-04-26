@@ -34,7 +34,7 @@ const openGalleryModal = async function () {
     //Suppression d'un élément//
     document.querySelectorAll(".deleteElementButton").forEach(el => el.addEventListener("click", async function (e) {
         if (confirm("Voulez vous supprimer cet élément?") == true) {
-            let buttonId = e.srcElement.offsetParent.value;
+            let buttonId = e.srcElement.parentElement.attributes.value.value;
             let requestLink = "http://localhost:5678/api/works/" + buttonId;
             await fetch(requestLink, {
                 headers: {
