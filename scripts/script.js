@@ -34,7 +34,7 @@ generateWorks(works);
 /*Filtre des projets*/
 
 document.querySelectorAll(".filter").forEach(el => el.addEventListener("click", function (e) {
-    let filterId = e.srcElement.value;
+    let filterId = e.target.value;
     if (filterId == "null") {
         const worksFiltered = works.filter(function (work) {
             return work.categoryId !== null;

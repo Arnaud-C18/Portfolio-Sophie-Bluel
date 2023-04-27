@@ -433,6 +433,12 @@ footer nav ul {
 	margin-top: 150px;
 }
 
+#wrongInfoText {
+	color: #D65353;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
 #loginSection h2 {
 	display: flex;
 	justify-content: center;
@@ -480,8 +486,12 @@ label {
 
 /*Mod Admin*/
 
+.edition {
+	display: none;
+}
+
 #editionBar {
-	display: flex;
+	display: none;
 	position: sticky;
 	top: 0;
 	height: 59px;
